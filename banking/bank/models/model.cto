@@ -1,0 +1,29 @@
+/**
+ * New model file
+ */
+
+namespace org.acme.bank
+
+participant accountholder identified by bankid
+{
+  o String bankid
+  o String firstname
+  o String lastname
+  o String address
+}
+
+asset acount identified by accno
+{
+  o String accno
+  o String balance 
+  -->accountholder customer1
+}
+
+transaction amountTransfer 
+{
+  o String tid
+  o String amount
+  -->acount owner1
+  -->acount owner2
+  
+}
